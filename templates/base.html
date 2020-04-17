@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/main_style.css' %}">
+    <meta charset="UTF-8">
+    <title>{% block title%}{% endblock %}</title>
+</head>
+<body>
+    <nav class="navigation">
+        <ul class="nav-menu">
+        <!--    <li class="nav-menu-item"><a href="/">Главная</a></li>
+            <li class="nav-menu-item"><a href="/publications">Публикации</a></li>
+            <li class="nav-menu-item"><a href="/contacts">Контакты</a></li> -->
+        </ul>
+    </nav>
+    {% block content %} {% endblock %}
+
+    <section class="content">
+    </section>
+    <footer>
+        <div class="social">
+            <ul>
+                <li><a href="https://www.instagram.com/?hl=ru" target="_blank" class="instagram">instagram</a></li>
+                <li><a href="https://www.youtube.com/" target="_blank" class="youtube">youtube</a></li>
+                <li><a href="https://t.me/AgasgG" target="_blank" class="telegram">telegram</a></li>
+                <li><a href="mailto:agasgg@email.com" target="_blank" class="email">email</a></li>
+            </ul>
+        </div>
+        <div class="copyrights">
+            <span>© 2020, first site of AgasgG</span>
+        </div>
+    </footer>
+</body>
+</html>

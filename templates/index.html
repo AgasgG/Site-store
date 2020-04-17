@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title%}Home{% endblock %}
+
+{% block content%}
+    <header>
+        <div class="header">
+            <h1>Сегодня: {{ current_day }} </h1>
+            <br>
+            <h1>Время: {{ current_time }} </h1>
+        </div>
+    </header>
+
+{% endblock %}

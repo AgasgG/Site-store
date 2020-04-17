@@ -25,7 +25,7 @@ SECRET_KEY = '8*&t&6$8o2#u52&)i8!9d$^cx5qu9$=xpv_pw57!s#4=_lzpl5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.0.0.7'] #указываются адреса на которых можно открыть сайт
 
 
 # Application definition
@@ -54,7 +54,9 @@ ROOT_URLCONF = 'Store.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'templates'#указываются папки с "шаблонами", для хранения здесь html
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,4 +119,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' #папка в корне с таким же именем создана
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] #добавляется для чтения этой папки
