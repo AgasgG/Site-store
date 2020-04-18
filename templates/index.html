@@ -6,10 +6,34 @@
 
     <header>
         <div class="header">
-            <h1>Сегодня: {{ current_day }}
-            <br>
-            Время: {{ current_time }} </h1>
+            <h1>Магазин скоро откроется</h1>
         </div>
     </header>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-4">
+            <h3 class="title"> Оставляйте Ваш E-mail в форме ниже и мы сообщим Вам об открытии</h3>
+                <div>
+                    <form action="" method="POST">
+                        {% csrf_token %} <!--Обязательный для Джанго токен, служит для безопасности, защищая от DDos-->
+                        {{ form.as_p }}
+                    <!--{{ form.as_p }} добавляет форму на страницу. ".as_p" отображает каждое поле формы на новой строке-->
+                        <div>
+                            <button type="Submit" class="btn btn-primary">Отправить</button>
+                        </div>
+                    </form>
+                    </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+ <h4>Сегодня: {{ current_day }}
+            <br>
+            Время: {{ current_time }} </h4>
 
 {% endblock %}
