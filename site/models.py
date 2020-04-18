@@ -13,5 +13,5 @@ class Subscriber(models.Model):
 
     class Meta: #произносимое имя.
 # Задаётся имя вместо имени Subscribers(s добавляет Django) в единственном и множественном числе:
-        verbose_name = 'Subscriber'
-        verbose_name_plural = 'Subscribers'
+        verbose_name = 'Подписчик'
+        verbose_name_plural = 'Подписчики'
