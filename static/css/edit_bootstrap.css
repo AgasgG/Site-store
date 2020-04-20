@@ -4,53 +4,120 @@ html, body{
     height: 100%;
     max-height: 100%;
     font-family: 'Roboto', sans-serif;
+    background-color: #edeef0;
 }
 
-body{
-    background-size: cover;
-    background: url('/static/img/back_water2.jpg');
+.section-top{
+    margin: 20px;
 }
 
-.general-container{
-    height: 100%;
-    color: white;
-    font-weight: 300;
-    line-height: 20px;
-}
-
-.general-container form{
-    margin-top: 30px;
-}
-
-.general-container form label{
-    font-weight: 100;
-}
-
-.btn-color{
-    background-color: #e8643e;
-    border: none;
-    margin-top: 10px;
+.product-item{
+    height: 360px;
+    background-color: white;
+    border: 1px solid lightgray;
+    position: relative;
+    padding: 5px;
+    text-align: center;
     margin-bottom: 10px;
 }
-.btn-color:hover{
-    background-color: #d14720;
-    border: none;
+
+.add-to-card-btn{
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
 }
 
-.btn-color:active, .btn-color:focus {
-    background-color: #d32e00 !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-
-
-.top-container{
-    padding-top: 10%;
+.nav-menu {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 0;
 }
 
-.title{
-    text-align: center;
-    color: white;
-    font-weight: 100;
-    line-height: 50px;
+.nav-menu li {
+    display: inline-block;
+    margin-left: 20px;
+
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+}
+
+.social ul {
+    padding: 0;
+}
+
+.social ul li {
+    display:inline-block;
+    margin: 0 10px;
+}
+
+.social ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.instagram {
+    background: url('https://cdn.svgporn.com/logos/instagram-icon.svg') no-repeat;
+    background-size: 19px;
+    padding-left: 20px;
+    background-position: center left;
+    color: #000;
+}
+
+.instagram  a:visited {
+    color: #343a40;
+}
+
+
+.youtube {
+    background: url('https://cdn.svgporn.com/logos/youtube.svg') no-repeat;
+    background-size: 19px;
+    padding-left: 20px;
+    background-position: center left;
+    color: #FF0100;
+}
+
+.youtube a:visited {
+    color: #FF0100;
+}
+
+.telegram {
+    background: url('https://cdn.svgporn.com/logos/telegram.svg') no-repeat;
+    background-size: 19px;
+    padding-left: 20px;
+    background-position: center left;
+    color: #FF0100;
+}
+
+.telegram a:visited {
+    color: #FF0100;
+}
+
+.email {
+    background: url('https://cdn.svgporn.com/logos/google-gmail.svg') no-repeat;
+    background-size: 19px;
+    padding-left: 20px;
+    background-position: center left;
+    color: #343a40;
+}
+
+.email a:visited {
+    color: #343a40;
+}
+
+.copyrights {
+    color: #b5b5b5;
 }

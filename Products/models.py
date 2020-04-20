@@ -5,6 +5,7 @@ from django.db import models
 class Product(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True, default=None)  # обязательный атрибут для текстового поля это максимальная длина
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    short_description = models.TextField(blank=True, null=True, default=None) #короткое описание
     description = models.TextField(blank=True, null=True, default=None)#несколько строк
     is_active = models.BooleanField(default=True)  # для того чтобы скрывать товар, допустим его нет
     created = models.DateTimeField(auto_now_add=True, auto_now=False) #значение меняется при создании
@@ -22,6 +23,7 @@ class Product(models.Model):
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)
     image = models.ImageField(upload_to='static/media/products_images')
+    is_main = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True) #для того чтобы скрывать картинки
     created = models.DateTimeField(auto_now_add=True, auto_now=False) #значение меняется при создании
     updated = models.DateTimeField(auto_now_add=False, auto_now=True) #значение меняется при любом обновлении в модели/записи

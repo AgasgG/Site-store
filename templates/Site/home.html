@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}Home{% endblock %}
+
+{% block content%}
+
+<div class="section-top">
+    <img src="{% static 'img/MB_AMG4.jpg' %}" class="img-responsive">
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row row-cols-4">
+            
+            {% for product_image in products_images %}
+            <div class="col">
+                <div class="product-item">
+                    <div>
+                        <img src="{{ product_image.image.url }}" class="img-responsive">
+                    </div>
+                    <h4> {{ product_image.product.name }} </h4>
+                    <p>{{ product_image.product.short_description|truncatechars_html:70 }}
+                    <!--Из модели Product выведет только описание и ограничит его 280 символами-->
+                    </p>
+                    <div>
+                        {{ product_image.product.price }} руб.
+                    </div>
+                    
+                    <div class="add-to-card-btn">
+                        <button class="btn btn-success">
+                            Добавить в корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+{% endblock %}
