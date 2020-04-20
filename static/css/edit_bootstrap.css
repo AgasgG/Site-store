@@ -37,6 +37,12 @@ body{
     border: none;
 }
 
+.btn-color:active, .btn-color:focus {
+    background-color: #d32e00 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
 
 .top-container{
     padding-top: 10%;
