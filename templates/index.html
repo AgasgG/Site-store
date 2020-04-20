@@ -4,31 +4,40 @@
 
 {% block content%}
 
-    <div class="general-container">
-        <div class="container top-container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h1 class="title">Наш магазин скоро откроется!<br>
-                    Оставляйте Ваш e-mail в форме ниже</h1>
-                    <div>
-                        <form action="" method="POST" class="form-inline text-center">
-                            {% csrf_token %} <!--Обязательный для Джанго токен, служит для безопасности, защищая от DDos-->
-                            <div class="form-group">
-                                <label>Ваше имя: </label>
-                                    <input type="text" name="{{ form.name.name }}" class="form-control">
+<div class="general-container">
+    <div class="container top-container">
+        <div class="row justify-content-center">
+            <div class="col-md-auto col-sm-auto">
+                <h1 class="title">Наш магазин скоро откроется!<br>
+                Оставляйте Ваш e-mail в форме ниже</h1>
+                    <form action="" method="POST" class="form-inline text-center">
+                        {% csrf_token %} <!--Обязательный для Джанго токен, служит для безопасности, защищая от DDos-->
+                        <div class="form-group col-sm-6 col-md-auto">
+                            <br>
+                            <label>Ваше имя: </label>
+                            <br>
+                            <input type="text" name="{{ form.name.name }}" class="form-control">
+                            <br>
+                        </div>
+                        
+                        <div class="form-group col-sm-6 col-md-auto">
+                            <br>
+                            <label>Ваш e-mail: </label>
+                            <br>    
+                            <input type="email" name="{{ form.email.name }}" class="form-control">
+                            <br>
+                        </div>
+                        <!--{{ form.as_p }} добавляет форму на страницу. ".as_p" отображает каждое поле формы на новой строке-->
+                        <div>
+                            <div class="col-sm-6 col-md-6">
+                                <button type="button" class="btn btn-primary btn-color">Подписаться</button>
                             </div>
-                            <div class="form-group">
-                                <label>Ваш e-mail: </label>
-                                    <input type="email" name="{{ form.email.name }}" class="form-control">
-                            </div>
-                            <!--{{ form.as_p }} добавляет форму на страницу. ".as_p" отображает каждое поле формы на новой строке-->
-                            <button type="submit" class="btn btn-primary btn-orange">Отправить</button>
-                        </form>
-                    </div>
-                </div>
+                        </div>
+                    </form>
             </div>
         </div>
     </div>
+</div>
 
 <!--
  <h4>Сегодня: {{ current_day }}<br>

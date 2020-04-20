@@ -26,16 +26,17 @@ body{
     font-weight: 100;
 }
 
-.btn-orange{
+.btn-color{
     background-color: #e8643e;
     border: none;
-    
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
-.btn-orange:hover{
-    background-color: #dc5129;
+.btn-color:hover{
+    background-color: #d14720;
     border: none;
 }
+
 
 .top-container{
     padding-top: 10%;
