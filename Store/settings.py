@@ -123,5 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/' #папка в корне с таким же именем создана
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] #добавляется для чтения этой папки
+STATIC_URL = '/static/static_dev/' #папка в корне с таким же именем создана
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/static_dev')] #добавляется для чтения этой папки
+MEDIA_URL = '/static/media/'
+#MEDIA_ROOT = [os.path.join(BASE_DIR, 'static/media/')]

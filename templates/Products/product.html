@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}Товар{% endblock %}
+
+{% block content%}
+    <div class="container">
+        <div class="row">
+            <div class="row-cols-6">
+                {% for image_item in product.productimage_set.all %}
+                <img src="{{ image_item.image.url }}" class="img-responsive">
+                {% endfor %}
+            </div>
+            <div class="row-cols-6">
+                <h1 class="text-center">
+                    {{ product.name }}
+                </h1>
+                <div class="">
+                    <p>
+                        Цена: {{ product.price }}
+                    </p>
+                </div>
+                <div class="">
+                    <p>
+                        Описание: {{ product.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
