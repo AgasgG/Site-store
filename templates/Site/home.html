@@ -9,8 +9,8 @@
 </div>
 <div class="section section1">
     <div class="container">
+        <h1 class="text-center">Коты</h1>
         <div class="row row-cols-4">
-            <h1 class="text-center"> Коты </h1>
             {% for product_image in products_images_cats %}
                 {% include 'Site/product_item.html'%}
             {% endfor %}
@@ -26,10 +26,8 @@
 
 <div class="section section2 notepad-container">
     <div class="container">
+        <h1 class="text-center">Блокноты</h1>
         <div class="row row-cols-4">
-            <h1 class="text-center">
-                Блокноты
-            </h1>
             {% for product_image in products_images_notepads %}
                 {% include 'Site/product_item.html'%}
             {% endfor %}
@@ -38,10 +36,8 @@
 </div>
 <div class="section section3 card-container">
     <div class="container">
+        <h1 class="text-center">Открытки</h1>
         <div class="row row-cols-4">
-            <h1 class="text-center">
-                Открытки
-            </h1>
             {% for product_image in products_images_cards %}
                 {% include 'Site/product_item.html'%}
             {% endfor %}

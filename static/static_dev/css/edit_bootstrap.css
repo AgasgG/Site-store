@@ -12,7 +12,7 @@ html, body{
 }
 
 .product-item{
-    height: 420px;
+    height: 430px;
     background-color: white;
     border: 1px solid lightgray;
     position: relative;
@@ -26,6 +26,21 @@ html, body{
     bottom: 15px;
     left: 0;
     right: 0;
+}
+/*
+.img-fluid{
+    max-height: 250px;
+}
+*/
+/*Апгрейд класса bootstrap img-fluid*/
+.img-on-homepage{
+    max-height: 250px;
+    max-width: 100%;
+    height: auto;
+}
+
+.product-description-tabs{
+    padding: 10px;
 }
 
 .discount-container{
@@ -45,26 +60,52 @@ html, body{
     color: white;
 }
 
-.nav-menu {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0 0;
+.product-image-item{
+    padding: 5px;
+    margin-bottom: 5px;
 }
 
-.nav-menu li {
-    display: inline-block;
-    margin-left: 20px;
-
-}
-
-.nav-menu li a {
-    text-decoration: none;
-    text-transform: uppercase;
-}
+/*.btn-buy{
+    margin-bottom: 10px;
+}*/
 
 .wrapper{
     padding-bottom: 100px;
 }
+
+.navbar-top{
+    padding: 0;
+    background-color: #b2b3b4;
+    height: 20px;
+    border: none;
+}
+
+.basket-container{
+    position: relative;
+    width: 400px;
+
+    }
+
+.basket-items{
+    background-color: rgba(166, 201, 156, 0.342);
+    position: absolute;
+    top: 38px;
+    width: 100%;
+    z-index: 10;
+    padding: 10px;
+}
+*.list_cart{
+    list-style: none;
+    padding-left: 10px;
+    margin-bottom: 0px;
+
+}
+
+/*
+.btn-outline-success{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}*/
 
 footer {
     display: flex;

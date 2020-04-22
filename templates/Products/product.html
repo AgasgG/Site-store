@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title%}Товар{% endblock %}
+{% block title%}Levelvi: {{ product.name }}{% endblock %}
 
 {% block content%}
     <div class="container">
         <div class="row">
-            <div class="row-cols-6">
-                {% for image_item in product.productimage_set.all %}
-                <img src="{{ image_item.image.url }}" class="img-responsive">
+            <div class="col-6">
+                {% for image_item in product.productimage_set.all %} <!--Все картинки связанные с этим товаром: _set.all (аналогично как filter в views.py)-->
+                    <div class="product-image-item">
+                        <img src="{{ image_item.image.url }}" class="img-fluid">
+                    </div>
+                    
                 {% endfor %}
             </div>
-            <div class="row-cols-6">
+            <div class="col-6">
                 <h1 class="text-center">
                     {{ product.name }}
                 </h1>
@@ -19,11 +22,55 @@
                         Цена: {{ product.price }}
                     </p>
                 </div>
-                <div class="">
-                    <p>
-                        Описание: {{ product.description }}
-                    </p>
+                <div>
+                    <form id="form_buying_product" class="form-inline">
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="number" id='number'>
+                        </div> 
+                        <div class="form-group">
+                            <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                            data-product_id = "{{ product.id }}"
+                            data-name = "{{ product.name }}"
+                            data-price = "{{ product.price }}"
+                            >
+                                Купить
+                            </button>
+                        </div>
+                    </form>
                 </div>
+                <!-- https://bootstrap-4.ru/docs/4.4/components/navs/ https://getbootstrap.com/docs/4.4/components/navs/-->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#description" role="tab" aria-controls="home" aria-selected="true">
+                          Описание</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#delivery" role="tab" aria-controls="profile" aria-selected="false">
+                          Доставка</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+                    </li>
+                  </ul>
+                  
+                  <div class="tab-content product-description-tabs">
+                    <div class="tab-pane active" id="description" role="tabpanel" aria-labelledby="home-tab">
+                        {{ product.description }}</div>
+                    <div class="tab-pane" id="delivery" role="tabpanel" aria-labelledby="profile-tab">
+                        Здесь описание доставки
+                    </div>
+                    <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+                    <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">...</div>
+                  </div>
+                  
+                  <script>
+                    $(function () {
+                      $('#myTab li:last-child a').tab('show')
+                    })
+                  </script>
             </div>
         </div>
     </div>
