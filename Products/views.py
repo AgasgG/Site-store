@@ -1,10 +1,17 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 
 from Site.forms import * #импорт моделей
 from Products.models import *
 
-def product(requets, product_id):
+def product(request, product_id):
     product = Product.objects.get(id=product_id)
-    return render(requets, 'Products/product.html', locals())
+
         #return redirect('Products/product')
+
+    session_key = request.session.session_key #ключ сессии для авторизованных пользователей
+    if not session_key:
+        request.session.cycle_key() #создание ключа сессии для неавторизованных пользователей
+    print(request.session.session_key)
+
+    return render(request, 'Products/product.html', locals())

@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Orders.context_processors.getting_basket_info', #для отображения информации о составе корзины на всех страницах сайта
             ],
         },
     },

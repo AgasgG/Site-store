@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.urls import path
 
-from Site import views
+from Orders import views
 
 urlpatterns = [
     #path('', views.index),
+    url(r'^basket_adding/$', views.basket_adding, name='basket_adding'),
 ]

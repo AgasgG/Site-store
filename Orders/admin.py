@@ -33,3 +33,12 @@ class ProductInOrderAdmin(admin.ModelAdmin):
         model= ProductInOrder
 
 admin.site.register(ProductInOrder, ProductInOrderAdmin)
+
+
+class ProductInBasketAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in ProductInBasket._meta.fields] #чтобы не перечислять названия всех полей делается цикл. "Subscriber._meta.fields" достаёт все поля из модели Subscriber
+
+    class Meta:
+        model= ProductInBasket
+
+admin.site.register(ProductInBasket, ProductInBasketAdmin)
