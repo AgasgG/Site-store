@@ -1,4 +1,5 @@
 # Описание полей в таблице БД
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import signals
 from django.db.models.signals import post_save
@@ -21,6 +22,7 @@ class Status(models.Model):
 
 
 class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, default=None)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) #цена для всех товаров в заказе
     customer_name = models.CharField(max_length=64, blank=True, null=True, default=None)  # обязательный атрибут для текстового поля это максимальная длина
     customer_email = models.EmailField(blank=True, null=True, default=None) #тип поля имэйл
@@ -65,7 +67,7 @@ class ProductInOrder(models.Model):
     def save(self, *args, **kwargs): #функция для переопределения сохранения
         price_per_item = self.product.price #цена в поле Модели Продукта присваивается цене в строке заказа
         self.price_per_item =  price_per_item # цене в строке заказа
-        self.total_price = self.nmb * price_per_item #считаем итоговую сумму
+        self.total_price = int(self.nmb) * price_per_item #считаем итоговую сумму
 
         super(ProductInOrder, self).save(*args, **kwargs)
 

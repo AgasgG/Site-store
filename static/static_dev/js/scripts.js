@@ -5,14 +5,17 @@ $(document).ready(function(){
     var form = $('#form_buying_product');
     console.log(form);
    
-   function basketUpdating(product_id, nmb, is_delete){
+    function basketUpdating(product_id, nmb, is_delete){
     var data = {}; //отправляемые данные, id продукта и его кол-во
     data.product_id = product_id;
     data.nmb = nmb; //число товара
     
     var csrf_token = $('#form_buying_product [name="csrfmiddlewaretoken"]').val();
+    var csrf_token2 = $('#form_delete_product [name="csrfmiddlewaretoken"]').val();
+    console.log("csrf_token:",csrf_token);
+    console.log("csrf_token2_test:",csrf_token2);
     data["csrfmiddlewaretoken"] = csrf_token; //эти 2 строчки нужны Джанго для POST запроса
-
+//добавлена переменная csrf_token2, которая является csrf ключом создаваемом при прогрузки navbar.html form_delete_product
     if (is_delete){
         data["is_delete"] = true;
     }
@@ -26,8 +29,8 @@ console.log(data)
         data: data,
         cache: true,
         success: function(data) {
-            console.log("Всё OK");
-            console.log(data.products_total_nmb)
+            console.log("Ajax - всё OK");
+            console.log("Число разных товаров в корзине:", data.products_total_nmb)
             if (data.products_total_nmb || data.products_total_nmb==0) {
                 $('#basket_total_nmb').text("("+data.products_total_nmb+")");
                 $('.basket-items ul').html("")
@@ -40,7 +43,7 @@ console.log(data)
             }
         },
         error:  function()  {
-            console.log("Ошибка/error")
+            console.log("Ajax - Ошибка/error")
         }
         })
    }
@@ -49,16 +52,16 @@ console.log(data)
     
     form.on('submit', function(event){
         event.preventDefault();
-        console.log('TEST123');
+        console.log('JS_AG_Run');
         var nmb = $('#number').val();
-        console.log(nmb);
+        console.log("Добавленное число товаров:",nmb);
         var submit_btn = $('#submit_btn');
         var product_id = submit_btn.data("product_id");
         var product_name = submit_btn.data("name");
         var product_price = submit_btn.data("price");
-        console.log(product_id);
-        console.log(product_name);
-        console.log(product_price);
+        console.log("ИД товара:",product_id);
+        console.log("Название товара:",product_name);
+        console.log("Цена товара:",product_price);
 
         basketUpdating(product_id, nmb, is_delete=false);
 
@@ -88,6 +91,27 @@ console.log(data)
         basketUpdating(product_id, nmb, is_delete=true);
         
     });
+
+    function calculatingBasketAmount(){
+        var total_order_amount = 0;
+        $('.total-product-in_basket-amount').each(function(){
+            total_order_amount += parseInt($(this).text());
+        });
+        $('#total_order_amount').text(total_order_amount);
+    };
+
+
+    $(document).on('change', ".product-in-basket-nmb", function(){
+        var current_nmb = $(this).val();
+        var current_tr = $(this).closest('tr');
+        var current_price = parseFloat(current_tr.find('.product-in-basket-price').text()).toFixed(2);
+        var total_amount = parseFloat(current_nmb*current_price).toFixed(2);
+        current_tr.find('.total-product-in_basket-amount').text(total_amount);
+        calculatingBasketAmount();
+    });
+
+    calculatingBasketAmount();
+
     /* БОЛЬШОЙ КОД оптимизированный функцией shovingBasket, но рабочий
     $('.btn-outline-success').mouseover(function() {
         $('.basket-items').removeClass('d-none d-sm-none');
