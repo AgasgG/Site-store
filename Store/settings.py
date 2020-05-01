@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+# служит для того, чтобы в продакшене заменять значения некоторых переменных
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '8*&t&6$8o2#u52&)i8!9d$^cx5qu9$=xpv_pw57!s#4=_lzpl5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.0.0.7'] #указываются адреса на которых можно открыть сайт
+ALLOWED_HOSTS = ['192.0.0.7', 'elvi-create.ru'] #указываются адреса на которых можно открыть сайт
 
 
 # Application definition
@@ -59,7 +60,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'templates'#указываются папки с "шаблонами", для хранения здесь html
+            'templates', #указываются папки с "шаблонами", для хранения здесь html
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -124,7 +126,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/static_dev/' #папка в корне с таким же именем создана
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/static_dev')] #добавляется для чтения этой папки
-MEDIA_URL = '/static/media/'
-#MEDIA_ROOT = [os.path.join(BASE_DIR, 'static/media/')]
+
+
+#для публикации в сети:
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_prod')
+
+STATIC_URL = '/static/' #любой текст, будет отображаться в URL
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/static_dev/'),
+    os.path.join(BASE_DIR, 'static/'),
+                    ] #добавляется для чтения этой папки
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/' #любой текст, будет отображаться в URL
