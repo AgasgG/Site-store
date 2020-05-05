@@ -14,4 +14,11 @@ def product(request, product_id):
         request.session.cycle_key() #создание ключа сессии для неавторизованных пользователей
     print(request.session.session_key)
 
-    return render(request, 'Products/product.html', locals())
+    return render(request, 'Products/new_product2.html', locals())
+
+
+def new_product(request):
+    return render(request, 'Products/new_product.html')
+
+def new_product2(request):
+    return render(request, 'Products/new_product2.html')

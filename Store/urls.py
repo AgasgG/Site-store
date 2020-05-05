@@ -19,13 +19,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 
+from Products import views
+
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('Site.urls')),
-    url(r'^', include('Orders.urls')),
-    url(r'^', include('Products.urls')),
+    url(r'^', include('Orders.urls')), #<--до открытия магазина закомментировать
+    url(r'^', include('Products.urls')), #<--до открытия магазина закомментировать
+    path('new_product/', views.new_product),
+    path('new_product2/', views.new_product2),
+
     # path('admin/', admin.site.urls),
     # path('', include('Site.urls')),
     # path('', include('Orders.urls')),
@@ -33,3 +38,4 @@ urlpatterns = [
 ] \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

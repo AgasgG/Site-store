@@ -18,6 +18,7 @@ from django.urls import path
 from Site import views
 
 urlpatterns = [
-    path('index/', views.index),
-    path('', views.home),
+    path('index/', views.index), #<--до открытия магазина закомментировать!
+    path('', views.home), #<--до открытия магазина закомментировать
+    #path('', views.index), #<--до открытия раскомментировать
 ]

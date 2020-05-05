@@ -130,12 +130,13 @@ USE_TZ = True
 
 #для публикации в сети:
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_prod')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATIC_URL = '/static/' #любой текст, будет отображаться в URL
+
+STATIC_URL = '/static/' #когда браузер в бою видет ссылку /static/ перенаправляет на STATIC_ROOT
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/static_dev/'),
     os.path.join(BASE_DIR, 'static/'),
-                    ] #добавляется для чтения этой папки
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/' #любой текст, будет отображаться в URL
+                    ] #добавляется для чтения этой папки в режиме DEBUG

@@ -10,20 +10,32 @@
     <title>Opening soon</title>
 </head>
 
+<style>
+    body { background-image: url({% static 'img/back_water2.jpg' %});}
+</style>
+
 <body>
 <div class="general-container">
     <div class="container top-container">
         <div class="row justify-content-center">
             <div class="col-md-auto col-sm-auto">
                 <h1 class="title">Наш магазин скоро откроется!<br>
-                Оставляйте Ваш e-mail в форме ниже</h1>
-                    <form action="" method="POST" class="form-inline text-center">
+                Оставляйте Ваш e-mail в форме ниже<br>
+                и узнайте первым об его открытии!</h1>
+
+                {% if message %}
+                <br>
+                <h1 class="text-center" style="color: #c7ddea;">
+                    <p><b><em><ins> {{ message }}</ins></em></b></p>
+                </h1>
+                {% else %}
+                <form action="" method="POST" class="form-inline text-center">
                         {% csrf_token %} <!--Обязательный для Джанго токен, служит для безопасности, защищая от DDos-->
                         <div class="form-group col-sm-6 col-md-auto">
                             <br>
                             <label>Ваше имя: </label>
                             <br>
-                            <input type="text" name="{{ form.name.name }}" class="form-control">
+                            <input type="text" name="{{ form.name.name }}" class="form-control" placeholder="{{error1}}">
                             <br>
                         </div>
                         
@@ -31,7 +43,7 @@
                             <br>
                             <label>Ваш e-mail: </label>
                             <br>    
-                            <input type="email" name="{{ form.email.name }}" class="form-control">
+                            <input type="email" name="{{ form.email.name }}" class="form-control" placeholder="{{error2}}">
                             <br>
                         </div>
                         <!--{{ form.as_p }} добавляет форму на страницу. ".as_p" отображает каждое поле формы на новой строке-->
@@ -41,6 +53,7 @@
                             </div>
                         </div>
                     </form>
+                {%endif%}
             </div>
         </div>
     </div>

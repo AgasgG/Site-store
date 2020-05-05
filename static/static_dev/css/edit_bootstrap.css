@@ -6,9 +6,12 @@ html, body{
     font-family: 'Roboto', sans-serif;
     background-color: #edeef0;
 }
-
 .section-top{
     margin: 20px;
+}
+
+.container{
+    padding-top: 10px;
 }
 
 .product-item{
@@ -69,16 +72,11 @@ html, body{
     margin-bottom: 10px;
 }*/
 
+
+/* ХЗ зачем, лишние куски
 .wrapper{
     padding-bottom: 100px;
-}
-
-.navbar-top{
-    padding: 0;
-    background-color: #b2b3b4;
-    height: 20px;
-    border: none;
-}
+}*/
 
 .basket-container{
     position: relative;
@@ -107,78 +105,45 @@ html, body{
     margin-bottom: 10px;
 }*/
 
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+/*footer*/
 
+footer { 
+    width:100%; 
+    background-color:white; 
+    min-height:100px; 
+    padding:5px 0px 5px 0px;
 }
 
-.social ul {
-    padding: 0;
+.social_footer_ul { 
+    display:table; 
+    margin:15px auto 0 auto; 
+    list-style-type:none;
+    padding-inline-start: 0;
+}
+.social_footer_ul li { 
+    padding-left:20px; 
+    padding-top:10px;
+    padding-bottom:10px;
+    float:left; 
+}
+.social_footer_ul li a {
+     color:#CCC; 
+     border:1px solid #CCC; 
+     padding:9px;
+     border-radius:50%;
+}
+.social_footer_ul li i {  
+    width:20px; 
+    height:20px; 
+    text-align:center;
 }
 
-.social ul li {
-    display:inline-block;
-    margin: 0 10px;
-}
-
-.social ul li a {
+.copyrights, .copyrights a:visited{
+    margin-top: 5px;
+    color: #CCC;
     text-decoration: none;
-    text-transform: uppercase;
 }
-
-.instagram {
-    background: url('https://cdn.svgporn.com/logos/instagram-icon.svg') no-repeat;
-    background-size: 19px;
-    padding-left: 20px;
-    background-position: center left;
-    color: #000;
-}
-
-.instagram  a:visited {
-    color: #343a40;
-}
-
-
-.youtube {
-    background: url('https://cdn.svgporn.com/logos/youtube.svg') no-repeat;
-    background-size: 19px;
-    padding-left: 20px;
-    background-position: center left;
-    color: #FF0100;
-}
-
-.youtube a:visited {
-    color: #FF0100;
-}
-
-.telegram {
-    background: url('https://cdn.svgporn.com/logos/telegram.svg') no-repeat;
-    background-size: 19px;
-    padding-left: 20px;
-    background-position: center left;
-    color: #FF0100;
-}
-
-.telegram a:visited {
-    color: #FF0100;
-}
-
-.email {
-    background: url('https://cdn.svgporn.com/logos/google-gmail.svg') no-repeat;
-    background-size: 19px;
-    padding-left: 20px;
-    background-position: center left;
-    color: #343a40;
-}
-
-.email a:visited {
-    color: #343a40;
-}
-
-.copyrights {
-    color: #b5b5b5;
+.copyrights a:hover{
+    color: #54abe6;
+    text-decoration: none;
 }

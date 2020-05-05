@@ -11,7 +11,7 @@ html, body{
     font-weight: 300;
     line-height: 20px;
     background-size: cover;
-    background: url('/static/static_prod/img/back_water2.jpg');
+    background: url('/static/static_prod/img/back_grey.jpg');
 }
 
 .general-container form{
