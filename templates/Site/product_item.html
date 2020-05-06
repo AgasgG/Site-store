@@ -1,3 +1,4 @@
+{% load static %}
 <div class="col" class="img-fluid">
     <div class="product-item">
         <div>
@@ -16,13 +17,13 @@
         <!--Из модели Product выведет только описание и ограничит его 70 символами-->
         </p>
         <div>
-            {{ product_image.product.price }} руб.
-        </div>
-
-        <div class="add-to-cart-btn">
-            <button class="btn btn-success">
-                Добавить в корзину
-            </button>
+            <div class="add-to-cart-btn" >
+                <b>{{ product_image.product.price }} Р</b>
+                <button title="Добавить в корзину" type="button" class="btn btn-light form-control" style="background-color: rgba(255, 255, 255, 0); border-color: rgba(255, 255, 255, 0)"><span class="material-icons">
+                        add_shopping_cart
+                    </span>
+                </button>
+            </div>
         </div>
     </div>
 </div>

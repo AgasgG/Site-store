@@ -5,13 +5,23 @@
 {% block content%}
 
 <div class="section-top">
-    <img src="{% static 'img/back_white.jpg' %}" class="img-fluid">
+    <img src="{% static 'img/Игрушка.PNG' %}" class="img-fluid rounded mx-auto d-block">
 </div>
-<div class="section section1">
+<div class="section section1 notepad-container">
     <div class="container">
-        <h1 class="text-center">Коты</h1>
-        <div class="row row-cols-4">
-            {% for product_image in products_images_cats %}
+        <h1 class="text-center">Блокноты</h1>
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
+            {% for product_image in products_images_notepads %}
+                {% include 'Site/product_item.html'%}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="section section2 moms-container">
+    <div class="container">
+        <h1 class="text-center">Мамины сокровища</h1>
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
+            {% for product_image in products_images_moms %}
                 {% include 'Site/product_item.html'%}
             {% endfor %}
         </div>
@@ -24,20 +34,10 @@
     </div>
 </div>
 
-<div class="section section2 notepad-container">
-    <div class="container">
-        <h1 class="text-center">Блокноты</h1>
-        <div class="row row-cols-4">
-            {% for product_image in products_images_notepads %}
-                {% include 'Site/product_item.html'%}
-            {% endfor %}
-        </div>
-    </div>
-</div>
 <div class="section section3 card-container">
     <div class="container">
         <h1 class="text-center">Открытки</h1>
-        <div class="row row-cols-4">
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
             {% for product_image in products_images_cards %}
                 {% include 'Site/product_item.html'%}
             {% endfor %}

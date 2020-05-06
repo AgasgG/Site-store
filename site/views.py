@@ -48,6 +48,6 @@ def index(request):
 def home(request):
     products_images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
     products_images_notepads = products_images.filter(product__category__id=1)
-    products_images_cards = products_images.filter(product__category__id=2)
-    products_images_cats = products_images.filter(product__category__id=3)
+    products_images_cards = products_images.filter(product__category__id=3)
+    products_images_moms = products_images.filter(product__category__id=2)
     return render(request, 'Site/home.html', locals())
