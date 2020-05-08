@@ -28,8 +28,6 @@ urlpatterns = [
     url(r'^', include('Site.urls')),
     url(r'^', include('Orders.urls')), #<--до открытия магазина закомментировать
     url(r'^', include('Products.urls')), #<--до открытия магазина закомментировать
-    path('new_product/', views.new_product),
-    path('new_product2/', views.new_product2),
 
     # path('admin/', admin.site.urls),
     # path('', include('Site.urls')),

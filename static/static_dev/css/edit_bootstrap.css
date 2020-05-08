@@ -15,7 +15,7 @@ html, body{
 }
 
 .product-item{
-    height: 430px;
+    height: 450px;
     background-color: white;
     border: 1px solid lightgray;
     position: relative;
@@ -29,6 +29,12 @@ html, body{
     bottom: 10px;
     left: 0;
     right: 0;
+}
+
+
+.btn-light{
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0);
 }
 /*
 .img-fluid{

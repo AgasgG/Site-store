@@ -15,10 +15,3 @@ def product(request, product_id):
     print(request.session.session_key)
 
     return render(request, 'Products/new_product2.html', locals())
-
-
-def new_product(request):
-    return render(request, 'Products/new_product.html')
-
-def new_product2(request):
-    return render(request, 'Products/new_product2.html')
