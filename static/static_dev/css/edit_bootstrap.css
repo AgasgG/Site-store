@@ -89,6 +89,7 @@ a.section-info {
 .product-image-item{
     padding: 5px;
     margin-bottom: 5px;
+}
 
 .basket-container{
     position: relative;
@@ -139,6 +140,7 @@ a.tocheck {
 
 .about{
     list-style: square;
+    color: aqua;
 }
 a.about:hover,
 a.about:active,
