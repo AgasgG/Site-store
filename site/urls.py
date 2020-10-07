@@ -21,4 +21,5 @@ urlpatterns = [
     path('index/', views.index), #<--до открытия магазина закомментировать!
     path('', views.home), #<--до открытия магазина закомментировать
     #path('', views.index), #<--до открытия раскомментировать
+    path('about', views.about),
 ]

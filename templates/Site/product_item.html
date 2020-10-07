@@ -12,13 +12,13 @@
         </div>
         {% endif %}
 
-        <h4> {{ product_image.product.name }} </h4>
-        <p>{{ product_image.product.short_description|truncatechars_html:70 }}
+        <h5 class="product_description"> {{ product_image.product.name }} </h5>
+        <p class="product_description">{{ product_image.product.short_description|truncatechars_html:70 }}
         <!--Из модели Product выведет только описание и ограничит его 70 символами-->
         </p>
         <div>
             <div class="add-to-cart-btn">
-                <b>{{ product_image.product.price }} Р</b>
+                <!--<b>{{ product_image.product.price }} Р</b>-->
 
                 <form id="form_id_{{ product_image.product.id }}" class="form_buying_product" action="{% url 'basket_adding' %}">{% csrf_token %}
                     <input type="hidden" value="1" id="number">
@@ -26,7 +26,7 @@
                             data-product_id = "{{ product_image.product.id }}"
                             data-name = "{{ product_image.product.name }}"
                             data-price = "{{ product_image.product.price }}"
-                            ><span class="material-icons">add_shopping_cart</span>
+                            ><b>{{ product_image.product.price }} ₽ </b><span class="material-icons">add_shopping_cart</span>
                         </button>
                 </form>
             </div>

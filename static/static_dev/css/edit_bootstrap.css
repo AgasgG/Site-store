@@ -6,27 +6,46 @@ html, body{
     font-family: 'Roboto', sans-serif;
     background-color: #edeef0;
 }
+/*
+a.nav-link, a.nav-link:active, a.nav-link:visited{
+    color: #28a745;
+}
+*/
+
 .section-top{
     margin: 20px;
+    background: #ead5c2;
 }
 
 .container{
-    padding-top: 10px;
+    padding-top: 2%;
+    padding-bottom: 3%;
 }
 
 .product-item{
-    height: 450px;
+    height: 395px;
+    max-width: 252px;
     background-color: white;
     border: 1px solid lightgray;
     position: relative;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.product_description{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.col{
+    padding-right: 7px;
+    padding-left: 7px;
 }
 
 .add-to-cart-btn{
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 0;
     right: 0;
 }
@@ -62,12 +81,20 @@ html, body{
     padding: 3px;
 }
 
-.section-delivery{
-    height: 300px;
-    background-color: thistle;
+.section-info{
+    height: auto;
+    background: #ead5c2;;
     text-align: center;
     color: black;
 }
+a.section-info:active, /* активная/посещенная ссылка */
+a.section-info:hover,  /* при наведении */
+a.section-info:visited,
+a.section-info {
+    color: #000;
+    text-decoration: none;
+}
+
 
 .product-image-item{
     padding: 5px;
@@ -86,23 +113,52 @@ html, body{
 
 .basket-container{
     position: relative;
-    width: 400px;
+    width: 115px;
 
     }
 
 .basket-items{
-    background-color: rgba(166, 201, 156, 0.342);
+    /*background-color: rgba(40, 167, 69, 0.5);*/
     position: absolute;
-    top: 38px;
-    width: 100%;
+    top: 48px;
+    right: -52px;
+    width: 220%;
     z-index: 10;
-    padding: 10px;
-}
-*.list_cart{
+    padding: 0px;
+    border-radius: 10px;/*
+    background: linear-gradient(-45deg, transparent 41%, rgba(0,186,0, 0.5) 66%, rgba(0,186,0, 0.2)),
+                linear-gradient(227deg, rgba(0,186,0, 0.2) 100%, transparent 63%);*/
+    background: #fff;
+    border-right: none;
+   }
+.list_cart{
     list-style: none;
-    padding-left: 10px;
+    padding-left: 0px;
     margin-bottom: 0px;
 
+}
+.li-item{
+    border: 1px solid #28a745;
+    border-radius: 10px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+a.delete-item:active, /* активная/посещенная ссылка */
+a.delete-item:hover,  /* при наведении */
+a.delete-item:visited,
+a.delete-item {
+    color: #ac171a;
+    text-decoration: none;
+}
+
+a.tocheck:active, /* активная/посещенная ссылка */
+a.tocheck:hover,  /* при наведении */
+a.tocheck:visited,
+a.tocheck {
+    color: #fff;
+    text-decoration: none;
 }
 
 /*
@@ -112,8 +168,33 @@ html, body{
 }*/
 
 /*footer*/
+.about{
+    list-style: square;
+}
+a.about:hover,
+a.about:active,
+a.about:visited,
+a.about{
+    color: #212529;
+    text-decoration: none;
+}
 
-footer { 
+.about-title{
+    font-size: 32px;
+    text-align: center;
+    margin: 8%;
+    }
+
+a.about-title:hover,
+a.about-title:active,
+a.about-title:visited,
+a.about-title{
+    color: #212529;
+    text-decoration: none;
+    margin: 0px;
+}
+
+.footer {
     width:100%; 
     background-color:white; 
     min-height:100px; 
@@ -153,8 +234,10 @@ footer {
     color: #54abe6;
     text-decoration: none;
 }
-
-
+/*
+.down-icon{
+    vertical-align: text-bottom;
+}*/
 
 .material-icons {
   font-family: 'Material Icons';
@@ -168,6 +251,7 @@ footer {
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  vertical-align: text-bottom;
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
@@ -179,4 +263,20 @@ footer {
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.check {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+}
+
+.product-in-basket-nmb {
+    width: 90px;
+}
+
+.table td, .table th {
+    padding: 5px
 }

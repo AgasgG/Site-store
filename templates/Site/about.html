@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title%}ELVI-CREATE: О проекте{% endblock %}
+
+{% block content%}
+<div class="container">
+    <div>
+        <p class="about-title">The site was created for an online store
+            <a class="about-title" href="https://www.instagram.com/elvi_create/">elvi_create</a> by
+            <a class="about-title" href="https://t.me/AgasgG">AgasgG</a>
+        </p>
+        <p style="font-size: 24px; margin-bottom: 1%;">Resources and tools used:</p>
+        <ul style="margin-left: 10%;">
+            <li class="about">Python 3.8.5</li>
+            <li class="about">Django 3.0.5</li>
+            <li class="about">SQLite</li>
+            <li class="about">JS, JQuery, Ajax</li>
+            <li class="about"> <a class="about" href="https://github.com/twbs">Bootstrap 4</a></li>
+            <li class="about"> <a class="about" href="https://github.com/AgasgG/Site_store">Git</a></li>
+            <li class="about"> <a class="about" href="https://github.com/nolimits4web/swiper">Gallery</a></li>
+            <li class="about"> <a class="about" href="https://github.com/material-components">Icons</a></li>
+            <li class="about"> <a class="about" href="https://charucashop.com">Content</a></li>
+            <li class="about"> <a class="about" href="https://github.com/codingmedved/shop">Materials</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

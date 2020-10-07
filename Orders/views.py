@@ -58,7 +58,6 @@ def checkout(request):
             name = data.get('name', 'Имя клиента')
             phone = data['phone']
             user, created = User.objects.get_or_create(username=phone, defaults={'first_name': name})
-
             print('Валидация пройдена')
 
             order = Order.objects.create(user=user, customer_name=name, customer_phone=phone, status_id=1)

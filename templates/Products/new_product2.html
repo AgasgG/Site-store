@@ -104,15 +104,15 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist" style="
     padding-top: 10px;">
           <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#description" role="tab" aria-controls="home" aria-selected="true">
+            <a class="nav-link active text-success" id="home-tab" data-toggle="tab" href="#description" role="tab" aria-controls="home" aria-selected="true">
               Описание</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#stock" role="tab" aria-controls="profile" aria-selected="false">
+            <a class="nav-link text-success" id="profile-tab" data-toggle="tab" href="#stock" role="tab" aria-controls="profile" aria-selected="false">
               Наличие</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#delivery" role="tab" aria-controls="profile" aria-selected="false">
+            <a class="nav-link text-success" id="profile-tab" data-toggle="tab" href="#delivery" role="tab" aria-controls="profile" aria-selected="false">
               Доставка</a>
           </li>
         </ul>
@@ -122,10 +122,19 @@
               {{ product.description }}
           </div>
           <div class="tab-pane" id="stock" role="tabpanel" aria-labelledby="profile-tab">
-              Здесь указывать наличие, добавив такой столбец в БД. Придумать условия отображения. Если значение больше 1 тогда "В наличии: ЗНАЧЕНИЕ", иначе "Под заказ".
+              Товар есть в наличии в количестве: 100шт.
           </div>
           <div class="tab-pane" id="delivery" role="tabpanel" aria-labelledby="profile-tab">
-              Здесь описание доставки нужно написать единое для всех товаров, тянуть из базы наверное лишние
+              В любую точку Земли
+              <br><span class="material-icons">public</span>
+               <span class="material-icons">local_airport</span>
+               <span class="material-icons">train</span>
+               <span class="material-icons">directions_boat</span>
+               <span class="material-icons">local_shipping</span>
+               <span class="material-icons">moped</span>
+               <span class="material-icons">directions_bike</span>
+               <span class="material-icons">directions_walk</span>
+               <span class="material-icons">my_location</span>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title%}Levelvi: Корзина{{ product.name }}{% endblock %}
+{% block title%}ELVI-CREATE: Корзина{{ product.name }}{% endblock %}
 
 {% block content%}
 
@@ -15,13 +15,13 @@
                     <div class="form-group">
                         <div class="col-4">
                             <label>Имя</label>
-                            <input type="text" name="{{ form.name.html_name }}" class="form-control">
+                            <input type="text" name="{{ form.name.html_name }}" class="form-control" placeholder="укажите имя" style="width: 210px" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-4">
                         <label>Телефон</label>
-                            <input type="text" name="{{ form.phone.html_name }}" class="form-control">
+                            <input type="text" name="{{ form.phone.html_name }}" class="form-control"  placeholder="укажите телефон" style="width: 210px" required>
                         </div>
                     </div>
 
@@ -60,14 +60,29 @@
                 </table>
                 <div class="text-right">
                     <hr>
-                    <h6>Сумма заказа: <span id="total_order_amount"> 0.00 </span> руб. </h6>
+                    <h6>Сумма заказа: <span id="total_order_amount"> 0 </span> руб. </h6>
                     <hr>
-                    <button type="submit" class="btn btn-primary btn-lg">Заказать</button>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-auto mr-auto">
+                            <a href="/" type="button" class="btn btn-outline-dark">Добавить ещё!</a>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success">Заказать</button>
+                        </div>
+                    </div>
                 </div>
             </form>
-
         {% else %}
-            <h3 class="text-center">Корзина пуста</h3>
+            <div class="container">
+              <div class="row">
+                <div class="check text-center">
+                    <h3 class="text-center">В корзине пока ничего нет</h3>
+                    <a href="/" type="button" class="btn btn-dark">За покупками!</a>
+                </div>
+              </div>
+            </div>
         {% endif %}
         </div>
 

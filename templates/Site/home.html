@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title%}Home{% endblock %}
+{% block title%}ELVI-CREATE: Главная{% endblock %}
 
 {% block content%}
 
 <div class="section-top">
-    <img src="{% static 'img/Игрушка.PNG' %}" class="img-fluid rounded mx-auto d-block">
+    <img src="{% static 'img/главная_400.png' %}" class="img-fluid rounded mx-auto d-block">
 </div>
 <div class="section section1 notepad-container">
     <div class="container">
@@ -17,9 +17,9 @@
         </div>
     </div>
 </div>
-<div class="section section2 moms-container">
+<div class="section section2 planer-container">
     <div class="container">
-        <h1 class="text-center">Мамины сокровища</h1>
+        <h1 class="text-center">Планеры</h1>
         <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
             {% for product_image in products_images_moms %}
                 {% include 'Site/product_item.html'%}
@@ -28,15 +28,20 @@
     </div>
 </div>
 
-<div class="section section-delivery">
+<div class="section section-info">
     <div>
-        <h3>Бесплатная доставка</h3>
+        <h5><span class="material-icons">notification_important</span>
+            <br>Информация по ценам, наличию и ассортименту< товара не является действительной<span class="material-icons">mood_bad</span>
+            <br>Сайт сделан для души<span class="material-icons">accessibility_new</span>
+            <br>Ваш заказ хоть и появится у нас, но увы, будет проигнорирован <span class="material-icons">voice_over_off</span>
+            <br><span class="material-icons">sentiment_satisfied_alt</span>
+        </h5>
     </div>
 </div>
 
-<div class="section section3 card-container">
+<div class="section section3 accessory-container">
     <div class="container">
-        <h1 class="text-center">Открытки</h1>
+        <h1 class="text-center">Аксессуары</h1>
         <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
             {% for product_image in products_images_cards %}
                 {% include 'Site/product_item.html'%}

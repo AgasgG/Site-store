@@ -12,6 +12,7 @@ $(document).ready(function(){
     console.log(form);
     //new version with class END
 
+
     function basketUpdating(product_id, nmb, is_delete){
     var data = {}; //отправляемые данные, id продукта и его кол-во
     data.product_id = product_id;
@@ -41,12 +42,12 @@ console.log(data)
             console.log("Число разных товаров в корзине:", data.products_total_nmb)
             if (data.products_total_nmb || data.products_total_nmb==0) {
                 $('#basket_total_nmb').text("("+data.products_total_nmb+")");
+                //#basket_total_nmb заменено на .basket_total_nmb чтобы работало 2 кнопки Коризна на странице. 070620 вернул обратно
                 $('.basket-items ul').html("")
                 $.each(data.products, function(k, v) {
-                    $('.basket-items ul').append('<li>'+v.name+': '+ v.nmb +'шт. '+ 'по '+v.price_per_item+'руб.'+
-                    '&nbsp &nbsp &nbsp &nbsp'+'<a href="" class="delete-item" data-product_id="'+v.id+'"><b>[x]</b></a>' +
+                    $('.basket-items ul').append('<li class="li-item">'+'<a href="" class="delete-item" data-product_id="'
+                    +v.id+'"> <span title="Удалить из корзины" class="material-icons">remove_shopping_cart</span></a>'+v.name+': '+ v.nmb +'шт. '+ 'по '+v.price_per_item+'руб.' +
                     '</li>');
-                    
                 })
             }
         },
@@ -94,12 +95,37 @@ form.on('submit', function(event){
         basketUpdating(product_id, nmb, is_delete=false);
 
         });
-
-
+//отображает и скрывает содержимое корзины
     function shovingBasket() {
         $('.basket-items').toggleClass('d-none d-sm-none');
     };
-    
+//при нажатии на корзина отображает корзину только тогда, когда меню моб. приложения не отображается
+    $('.btn-outline-success').on('click',function() {
+        var elem = document.getElementsByClassName("navbar-collapse");
+
+        if (elem[0].classList.contains('show')) {
+            console.log('Не показывать корзину в открытом меню');
+        }
+        else {
+            shovingBasket();
+            console.log('Показать/скрыть корзину')
+        }
+
+     });
+//закрытие корзины
+    function closeBasket(){
+        $('.basket-items').addClass('d-none d-sm-none');
+    }
+//при нажатии на меню моб. версии закрывает корзину
+    $(document).on('click','.navbar-toggler', function(e) {
+        e.preventDefault();
+        console.log('Скрыть корзину')
+        closeBasket();
+    });
+
+    //backup. Список товаров в корзине отображается при наведении курсора на кнопку корзина.
+    // Минус в том, что в мобильной версии трудно удалить из списка товара. Поэтому выше функция реагирует на Click по кнопке
+    /*
     $('.btn-outline-success, basket-items').mouseover(function() {
         shovingBasket();
      });
@@ -107,14 +133,17 @@ form.on('submit', function(event){
      $('.btn-outline-success, .basket-items').mouseout(function() {
          shovingBasket();
      });
+    */
+
 
     $(document).on('click','.delete-item', function(e) {
         e.preventDefault();
         product_id = $(this).data("product_id");
         nmb = 0;
         basketUpdating(product_id, nmb, is_delete=true);
-        
+
     });
+
 
     function calculatingBasketAmount(){
         var total_order_amount = 0;
@@ -128,14 +157,39 @@ form.on('submit', function(event){
     $(document).on('change', ".product-in-basket-nmb", function(){
         var current_nmb = $(this).val();
         var current_tr = $(this).closest('tr');
-        var current_price = parseFloat(current_tr.find('.product-in-basket-price').text()).toFixed(2);
-        var total_amount = parseFloat(current_nmb*current_price).toFixed(2);
+        var current_price = parseInt(current_tr.find('.product-in-basket-price').text());
+        var total_amount = parseInt(current_nmb*current_price);
         current_tr.find('.total-product-in_basket-amount').text(total_amount);
         calculatingBasketAmount();
     });
 
     calculatingBasketAmount();
 
+    $(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 420) {
+      $(".layer1").addClass("d-none d-sm-none");
+      $(".layer2").removeClass("d-none d-sm-none");
+      $(".navbar-collapse").addClass("d-none d-sm-none");
+      $(".navbar-collapse").removeClass("show");
+    } else {
+      $(".layer2").addClass("d-none d-sm-none");
+      $(".layer1").removeClass("d-none d-sm-none");
+      $(".navbar-collapse").removeClass("d-none d-sm-none");
+    }
+    });
+
+    (function($) {
+        $(function() {
+
+	        $('#up').click(function() {
+		        $('html, body').animate({scrollTop: 0},500);
+		        return false;
+	        })
+
+        })
+    })(jQuery)
     /* БОЛЬШОЙ КОД оптимизированный функцией shovingBasket, но рабочий
     $('.btn-outline-success').mouseover(function() {
         $('.basket-items').removeClass('d-none d-sm-none');

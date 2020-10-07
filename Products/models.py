@@ -16,7 +16,7 @@ class ProductCategory(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True, default=None)  # обязательный атрибут для текстового поля это максимальная длина
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    price = models.IntegerField(default=0)
     discount = models.IntegerField(default=0)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, blank=True, null=True, default=None)
     short_description = models.TextField(blank=True, null=True, default=None) #короткое описание

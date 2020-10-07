@@ -23,7 +23,7 @@ class Status(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, default=None)
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) #цена для всех товаров в заказе
+    total_price = models.IntegerField(default=0) #цена для всех товаров в заказе
     customer_name = models.CharField(max_length=64, blank=True, null=True, default=None)  # обязательный атрибут для текстового поля это максимальная длина
     customer_email = models.EmailField(blank=True, null=True, default=None) #тип поля имэйл
     customer_phone = models.CharField(max_length=48, blank=True, null=True, default=None) #Blank - поле может быть пустым
@@ -50,8 +50,8 @@ class ProductInOrder(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, null=True, default=None) #ключ для соединения с заказом
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)  # ключ для соединения с заказом
     nmb = models.IntegerField(default=1) #nmb - numbers, количество товаров
-    price_per_item = models.DecimalField(max_digits=10, decimal_places=2, default=0) #цена за единицу товара. Если цена меняется, то в заказе можно будет увидеть цену продажи
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) #price*nmb
+    price_per_item = models.IntegerField(default=0) #цена за единицу товара. Если цена меняется, то в заказе можно будет увидеть цену продажи
+    total_price = models.IntegerField(default=0) #price*nmb
     is_active = models.BooleanField(default=True)  # для того чтобы скрывать товар в заказе, если его отменили
     created = models.DateTimeField(auto_now_add=True, auto_now=False) #значение меняется при создании
     updated = models.DateTimeField(auto_now_add=False, auto_now=True) #значение меняется при любом обновлении в модели/записи
@@ -91,8 +91,8 @@ class ProductInBasket(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, null=True, default=None) #ключ для соединения с заказом
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)  # ключ для соединения с заказом
     nmb = models.IntegerField(default=1) #nmb - numbers, количество товаров
-    price_per_item = models.DecimalField(max_digits=10, decimal_places=2, default=0) #цена за единицу товара. Если цена меняется, то в заказе можно будет увидеть цену продажи
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) #price*nmb
+    price_per_item = models.IntegerField(default=0) #цена за единицу товара. Если цена меняется, то в заказе можно будет увидеть цену продажи
+    total_price = models.IntegerField(default=0) #price*nmb
     is_active = models.BooleanField(default=True)  # для того чтобы скрывать товар в заказе, если его отменили
     created = models.DateTimeField(auto_now_add=True, auto_now=False) #значение меняется при создании
     updated = models.DateTimeField(auto_now_add=False, auto_now=True) #значение меняется при любом обновлении в модели/записи
