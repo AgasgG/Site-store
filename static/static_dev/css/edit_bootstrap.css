@@ -6,11 +6,6 @@ html, body{
     font-family: 'Roboto', sans-serif;
     background-color: #edeef0;
 }
-/*
-a.nav-link, a.nav-link:active, a.nav-link:visited{
-    color: #28a745;
-}
-*/
 
 .section-top{
     margin: 20px;
@@ -55,12 +50,7 @@ a.nav-link, a.nav-link:active, a.nav-link:visited{
     background-color: rgba(255, 255, 255, 0);
     border-color: rgba(255, 255, 255, 0);
 }
-/*
-.img-fluid{
-    max-height: 250px;
-}
-*/
-/*Апгрейд класса bootstrap img-fluid*/
+
 .img-on-homepage{
     max-height: 250px;
     max-width: 100%;
@@ -99,17 +89,6 @@ a.section-info {
 .product-image-item{
     padding: 5px;
     margin-bottom: 5px;
-}
-
-/*.btn-buy{
-    margin-bottom: 10px;
-}*/
-
-
-/* ХЗ зачем, лишние куски
-.wrapper{
-    padding-bottom: 100px;
-}*/
 
 .basket-container{
     position: relative;
@@ -118,16 +97,13 @@ a.section-info {
     }
 
 .basket-items{
-    /*background-color: rgba(40, 167, 69, 0.5);*/
     position: absolute;
     top: 48px;
     right: -52px;
     width: 220%;
     z-index: 10;
     padding: 0px;
-    border-radius: 10px;/*
-    background: linear-gradient(-45deg, transparent 41%, rgba(0,186,0, 0.5) 66%, rgba(0,186,0, 0.2)),
-                linear-gradient(227deg, rgba(0,186,0, 0.2) 100%, transparent 63%);*/
+    border-radius: 10px;
     background: #fff;
     border-right: none;
    }
@@ -161,13 +137,6 @@ a.tocheck {
     text-decoration: none;
 }
 
-/*
-.btn-outline-success{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}*/
-
-/*footer*/
 .about{
     list-style: square;
 }
@@ -234,11 +203,6 @@ a.about-title{
     color: #54abe6;
     text-decoration: none;
 }
-/*
-.down-icon{
-    vertical-align: text-bottom;
-}*/
-
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
