@@ -42,7 +42,7 @@
                                     {{ product_in_basket.product.name }}
                                 </td>
                                 <td>
-                                    <input value="{{ product_in_basket.nmb }}" type="number" class="product-in-basket-nmb" name="product_in_basket_{{ product_in_basket.id }}">
+                                    <input value="{{ product_in_basket.nmb }}" type="number" min="0" max="100" class="product-in-basket-nmb" name="product_in_basket_{{ product_in_basket.id }}">
                                 </td>
                                 <td>
                                     <span class="product-in-basket-price">

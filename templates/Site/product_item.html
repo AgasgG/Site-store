@@ -12,7 +12,7 @@
         </div>
         {% endif %}
 
-        <h5 class="product_description"> {{ product_image.product.name }} </h5>
+        <h5 class="product_title"> {{ product_image.product.name }} </h5>
         <p class="product_description">{{ product_image.product.short_description|truncatechars_html:70 }}
         <!--Из модели Product выведет только описание и ограничит его 70 символами-->
         </p>

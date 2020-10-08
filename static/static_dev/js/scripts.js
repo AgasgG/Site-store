@@ -5,7 +5,7 @@ $(document).ready(function(){
 
    //new version with class
     var form = $('.form_buying_product');
-    console.log(form);
+    //console.log(form);
     //new version with class END
 
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     var csrf_token = $('.form_buying_product [name="csrfmiddlewaretoken"]').val();
 
-    console.log("csrf_token:",csrf_token);
+    //console.log("csrf_token:",csrf_token);
     data["csrfmiddlewaretoken"] = csrf_token; //эти 2 строчки нужны Джанго для POST запроса
 //добавлена переменная csrf_token2, которая является csrf ключом создаваемом при прогрузки navbar.html form_delete_product
     if (is_delete){
@@ -25,15 +25,15 @@ $(document).ready(function(){
 
     var url = form.attr("action"); //адрес на который необходимо отправлять POST запрос
 
-console.log(data)
+//console.log(data)
     $.ajax({
         url: url,
         type: 'POST',
         data: data,
         cache: true,
         success: function(data) {
-            console.log("Ajax - всё OK");
-            console.log("Число разных товаров в корзине:", data.products_total_nmb)
+          //  console.log("Ajax - всё OK");
+          //  console.log("Число разных товаров в корзине:", data.products_total_nmb)
             if (data.products_total_nmb || data.products_total_nmb==0) {
                 $('#basket_total_nmb').text("("+data.products_total_nmb+")");
                 //#basket_total_nmb заменено на .basket_total_nmb чтобы работало 2 кнопки Коризна на странице. 070620 вернул обратно
@@ -46,14 +46,14 @@ console.log(data)
             }
         },
         error:  function()  {
-            console.log("Ajax - Ошибка/error")
+        //    console.log("Ajax - Ошибка/error")
         }
         })
    }
 
 form.on('submit', function(event){
         event.preventDefault();
-        console.log('JS_AG_Run');
+        //console.log('JS_AG_Run');
 
         let get_form_id = event.target.id; //получение ID формы на которой выполнилось событие submit
         let get_btn_form_id = 'btn_'+get_form_id; //получение ID кнопки
@@ -63,10 +63,10 @@ form.on('submit', function(event){
         var product_name = submit_btn.data("name");
         var product_price = submit_btn.data("price");
         //var nmb = submit_btn.data("nmb");
-        console.log("Добавленное число товаров:",nmb);
-        console.log("ИД товара:",product_id);
-        console.log("Название товара:",product_name);
-        console.log("Цена товара:",product_price);
+        //console.log("Добавленное число товаров:",nmb);
+        //console.log("ИД товара:",product_id);
+        //console.log("Название товара:",product_name);
+        //console.log("Цена товара:",product_price);
 
         basketUpdating(product_id, nmb, is_delete=false);
 
@@ -80,11 +80,11 @@ form.on('submit', function(event){
         var elem = document.getElementsByClassName("navbar-collapse");
 
         if (elem[0].classList.contains('show')) {
-            console.log('Не показывать корзину в открытом меню');
+          //  console.log('Не показывать корзину в открытом меню');
         }
         else {
             shovingBasket();
-            console.log('Показать/скрыть корзину')
+            //console.log('Показать/скрыть корзину')
         }
 
      });
@@ -95,7 +95,7 @@ form.on('submit', function(event){
 //при нажатии на меню моб. версии закрывает корзину
     $(document).on('click','.navbar-toggler', function(e) {
         e.preventDefault();
-        console.log('Скрыть корзину')
+        //console.log('Скрыть корзину')
         closeBasket();
     });
 
